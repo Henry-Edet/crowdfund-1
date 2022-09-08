@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500&display=swap');
+:root {
+    --color-moderate-cyan: hsl(176, 50%, 47%);
+    --color-dark-cyan: hsl(176, 72%, 28%);
+    --color-black: hsl(0, 0%, 0%);
+    --color-dark-gray: hsl(0, 0%, 48%);
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    outline: none;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Commissioner', sans-serif;
+    font-size: 1.6rem;
+}
+
+.container {
+    /* border: 1px solid red; */
+    width: 86%;
+    margin: 0 auto;
+}
+
+.header__nav {
+    border: 1px solid blue;
+    padding: 3rem 0;
+    position: fixed;
+    width: 100vw;
+    margin-top: 4rem;
+    z-index: 50;
+}
+
+.header__nav.sticky {}
+
+.header__nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.logo {
+    /* border: 1px solid green; */
+    font-weight: 500;
+}
+
+.nav-logo {
+    font-size: 2rem;
+    color: #fff;
+    transition: all 400ms ease;
+}
+
+.nav-links {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 4rem;
+    /* border: 1px solid purple; */
+}
+
+.nav-link {
+    font-size: 1.2rem;
+    color: #fff;
+    transition: all 400ms ease;
+}
+
+.nav-link:hover,
+.nav-logo:hover {
+    color: var(--color-moderate-cyan);
+}
+
+.nav-icon {
+    display: none;
+    font-size: 2.8rem;
+    color: #fff;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+.header {
+    position: relative;
+    /* border: 1px solid red; */
+    background: url('./../images/image-hero-desktop.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 50vh;
+}
+
+.header::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+
+/* ====================== MEDIA QUERIS ================== */
+
+@media screen and (max-width:800px) {
+    .nav-links {
+        display: none;
+    }
+    .nav-icon {
+        display: block;
+    }
+    .mobile-nav {
+        display: block;
+        /* border: 1px solid red; */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        padding: 4rem 5vw;
+        z-index: 100;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.4));
+        transform: translateY(-100%);
+        transition: all 400ms ease-in;
+    }
+    .mobile-nav .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .mobile-nav .mobile-icon {
+        font-size: 3rem;
+        color: #fff;
+    }
+    .mobile-nav .mobile-logo {
+        font-size: 2.8rem;
+        color: #fff;
+        font-weight: 700;
+    }
+    .mobile-list {
+        /* border: 1px solid red; */
+        background-color: #fff;
+        display: flex;
+        /* gap: 5rem; */
+        flex-direction: column;
+        margin-top: 3.5rem;
+        border-radius: 1rem;
+        /* padding: 2.2rem; */
+    }
+    .mobile-list li {
+        padding: 4rem 0 4rem 2rem;
+        /* background-color: red; */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    }
+    .mobile-list li:last-of-type {
+        border-bottom: none;
+    }
+    .mobile-link {
+        font-size: 2.4rem;
+        font-weight: 500;
+        color: var(--color-black);
+    }
+    .header {
+        background: url("./../images/image-hero-mobile.jpg");
+        background-position: center;
+    }
+    .header__nav.open .mobile-nav {
+        transform: translateY(0);
+    }
+}
